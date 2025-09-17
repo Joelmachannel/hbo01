@@ -1,1 +1,25 @@
 # hbo01
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sony One Clássicas</title>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+  <style>body { margin: 0; background: #000; } video { width: 100%; height: 100vh; }</style>
+</head>
+<body>
+  <video id="player" controls></video>
+  <script>
+    const video = document.getElementById('player');
+    const source = "http://ns2.gmaplay.xyz:8080/tvonline323523562436/ffmNJdoBrY5gYZXQsJWrrZp4zC1U2oFu/62230";
+    if (Hls.isSupported()) {
+      const hls = new Hls(); hls.loadSource(source); hls.attachMedia(video);
+    } else {
+      video.src = source;
+    }
+    const player = new Plyr(video);
+  </script>
+</body>
+</html>
